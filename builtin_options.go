@@ -9,8 +9,8 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/logger"
 )
 
-// ShowFiberBanner 會使得應用在啟動時顯示 Fiber 的啟動訊息
-func ShowFiberBanner() func(a *App) {
+// ShowFiberBanner will show Fiber banner when app start
+func ShowFiberBanner() AppOption {
 	return func(a *App) {
 		a.BeforeFiberCreated = append(a.BeforeFiberCreated, func(c *fiber.Config) {
 			c.DisableStartupMessage = false
@@ -18,7 +18,8 @@ func ShowFiberBanner() func(a *App) {
 	}
 }
 
-// ListenPortFromEnv 會從環境變數中取得監聽的位置，如果沒有則用預設值
+// ListenPortFromEnv will get listen port from environment variable.
+// If environment variable is empty, it will use given default port
 func ListenPortFromEnv(default_listen string) AppOption {
 	return func(a *App) {
 		envPort := os.Getenv("PORT")
@@ -32,7 +33,7 @@ func ListenPortFromEnv(default_listen string) AppOption {
 	}
 }
 
-// UseLogger 會在應用啟動時啟用 Fiber 的 Logger
+// UseLogger will enable Fiber's logger
 func UseLogger() AppOption {
 	return func(a *App) {
 		a.AfterFiberCreated = append(a.AfterFiberCreated, func(a *App) {
@@ -41,7 +42,7 @@ func UseLogger() AppOption {
 	}
 }
 
-// UseCORS 會在應用啟動時啟用 Fiber 的 CORS
+// UseCORS will use Fiber's CORS middleware
 func UseCORS() AppOption {
 	return func(a *App) {
 		a.AfterFiberCreated = append(a.AfterFiberCreated, func(a *App) {

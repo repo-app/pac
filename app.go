@@ -1,14 +1,13 @@
 // Package pac is a simple web framework based on Fiber, and Do.
 // It provides some useful features to make web development easier.
-// And denpendency injection is the most important feature.
+// And dependency injection is the most important feature.
 package pac
 
 import (
-	"github.com/gofiber/fiber/v2"
 	"github.com/samber/do"
 )
 
-// NewApp return an new Pac application
+// NewApp return a new Pac application
 func NewApp(opts ...AppOption) *App {
 	// First, we create a empty application
 	pacApp := App{

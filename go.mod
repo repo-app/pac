@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/gofiber/fiber/v2 v2.41.0
-	github.com/samber/do v1.5.1
+	github.com/samber/do v1.6.0
 )
 
 require (

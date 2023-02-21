@@ -4,6 +4,7 @@
 package pac
 
 import (
+	"github.com/gofiber/fiber/v2"
 	"github.com/samber/do"
 )
 
